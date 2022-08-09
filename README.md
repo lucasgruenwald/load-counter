@@ -1,4 +1,1 @@
-# WhiteClaw
-
-https://lukegruenwald.com/WhiteClaw
-
+# Page Load Counter
