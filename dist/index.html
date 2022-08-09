@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cache Counter</title>
+    <meta charset="UTF-8" />
+    <style>
+      * {
+        background-color: black;
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      .header{
+        font-size: 25px;
+        margin-left: 30px;
+      }
+      .count-container{
+        width: 80vw; 
+        margin-left: 20px;
+      } 
+      .flex-container{
+        margin-left:5vw; 
+        margin-top: 5vh;
+        padding: 20px; 
+        display: flex;
+        justify-content: center;
+        filter: drop-shadow(0 0 0.8rem white);
+        border-radius: 20px;
+        max-width: 400px;
+      }
+      .flex-container > * {
+        font-size: 25px;
+        font-weight: 700;
+      }
+      .view-counter{
+        padding: 15px;
+      }
+      .load-text{
+        margin-top: 15px;
+      }
+      .clear-counter{
+        padding: 20px;
+        border-radius: 20px;
+        font-size: 18px;
+        filter: drop-shadow(0 0 0.2rem white);
+        margin-left:5vw; 
+        margin-top: 100px;
+      }
+    </style>
+  </head>
+
+  <h4 class="header">Page Load Counter</h4>
+
+  <body>
+    <div class="count-container" >
+      <div class="flex-container">
+      <div class="view-counter">0</div><p class="load-text">&nbsp; page loads</p>
+      </div>
+      <button class="clear-counter">Reset</button>
+      <p style="margin-top: 300px; margin-left: 5vw;">Luke Gruenwald</p>
+    </div>
+
+    <script>
+      if (localStorage.viewCount) {
+        localStorage.viewCount = Number(localStorage.viewCount) + 1;
+      } else {
+        localStorage.viewCount = 1;
+      }
+      let counter = document.querySelector(`.view-counter`)
+      counter.innerHTML = localStorage.viewCount
+      console.log(localStorage.viewCount)
+      const clearCount = () => {
+        localStorage.viewCount = 0
+        console.log(localStorage.viewCount)
+        counter.innerHTML = localStorage.viewCount
+      };
+      let clear = document.querySelector(`.clear-counter`)
+      clear.addEventListener('click', clearCount);
+    </script>
+  </body>
+
+</html>
